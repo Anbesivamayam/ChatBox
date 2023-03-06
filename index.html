@@ -94,9 +94,11 @@
     </style>
   </head>
 
-  <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-slate-300">
+  <body
+    class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-slate-300"
+  >
     <div class="h-full">
-        <!--Navbar-->
+      <!--Navbar-->
       <div class="w-full container mx-auto">
         <div class="w-full flex items-center justify-between">
           <a
@@ -139,62 +141,114 @@
               </svg>
             </a>
           </div>
-         
         </div>
       </div>
 
       <!--Main-->
-      <div class="container pt-12 xl:pt-12 mx-auto flex flex-col lg:flex-row items-center gap-x-12 ">
+      <div
+        class="container pt-12 xl:pt-12 mx-auto flex flex-col lg:flex-row items-center gap-x-12"
+      >
         <!--Left Col-->
-        <div class="w-full flex flex-col w-full justify-center lg:items-start overflow-y-hidden">
-          <form class="bg rounded-3xl opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+        <div
+          class="w-full flex flex-col w-full justify-center lg:items-start overflow-y-hidden"
+        >
+          <form
+            method="GET"
+            action=""
+            class="bg rounded-3xl opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4"
+          >
             <div class="my-2">
-              <label class="block py-2 font-bold mb-2 xl:text-2xl text-center bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent" >
+              <label
+                class="block py-2 font-bold mb-2 xl:text-2xl text-center bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
+              >
                 Chat with our Chatbox
               </label>
-           <form class="px-4 py-2 w-full flex flex-col justify-center ">
-            <div class="flex justify-center items-center ">
-            <input placeholder="Questions" type="text" class="inline-block w-full rounded px-4 py-3 font-body text-black bg-white outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-gray-100 focus:drop-shadow-lg">
-            <button class="inline-block w-fit bg-gray-600 shadow-xl hover:bg-gray-500 text-white font-normal rounded-r-md px-4 py-3 whitespace-pre hover:transistion duration-300 ease-in-out">Ask AI</button>
+              <div class="px-4 py-2 w-full flex flex-col justify-center">
+                <div class="relative w-full flex">
+                  <input
+                    placeholder="Questions"
+                    type="text"
+                    id="question"
+                    name="question"
+                    class="inline-block pr-24 w-full rounded px-4 py-3 font-body text-black bg-gray-100 outline-none drop-shadow-sm transition-all duration-200 ease-in-out"
+                  />
+                  <button
+                    onclick="getAnswer()"
+                    class="absolute right-0 px-4 py-3 bg-gray-600 shadow-xl hover:bg-gray-500 text-white font-normal rounded-r-md hover:transistion duration-300 ease-in-out"
+                  >
+                    Ask AI
+                  </button>
+                </div>
+                <div class="mt-6">
+                  <textarea
+                    id="answer"
+                    name="answer"
+                    class="p-2 w-full text-black outline-none resize-none bg-gray-100 outline-none"
+                    readonly
+                    placeholder="Answers"
+                    rows="7"
+                  ></textarea>
+                </div>
+              </div>
             </div>
-            <div class="">
-                
-            </div>
-           </form>
-            </div>
-
           </form>
         </div>
         <!--Right Col-->
-       <section class="mx-auto px-4 flex flex-col justify-center items-center ">
-        <div class="w-full overflow-hidden">
+        <section class="mx-auto px-4 flex flex-col justify-center items-center">
+          <div class="w-full overflow-hidden">
             <img
-            class="mx-auto w-full "
-            src="https://cdn.due.com/blog/wp-content/uploads/2021/07/Automation-is-Impacting-the-Finance-Industry-1024x695.png"
-            alt="chatBox"
+              class="mx-auto w-full"
+              src="https://cdn.due.com/blog/wp-content/uploads/2021/07/Automation-is-Impacting-the-Finance-Industry-1024x695.png"
+              alt="chatBox"
             />
-        </div>
-        <div class="w-full mx-auto py-6 flex flex-col justify-center items-center ">
-            <h2 class="font-bold tracking-widest text-3xl xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">Things you can do</h1>
-            <span class="content__container block font-light text-browngray text-xl xl:text-2xl my-6">
-                <ul class="content__container__list">
-                    <li class="content__container__list__item ">Chat with AI</li>
-                    <li class="content__container__list__item ">Answer Questions</li>
-                    <li class="content__container__list__item ">Ask Jokes</li>
-                    <li class="content__container__list__item ">Brainstorm ideas</li>
-                    <li class="content__container__list__item ">Play games</li>
-                    <li class="content__container__list__item ">Learn new things</li>
-                    <li class="content__container__list__item ">Personal Assistant</li>
-                </ul>
+          </div>
+          <div
+            class="w-full mx-auto py-6 flex flex-col justify-center items-center"
+          >
+            <h2
+              class="font-bold tracking-widest text-3xl xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
+            >
+              Things you can do
+            </h2>
+            <span
+              class="content__container block font-light text-browngray text-xl xl:text-2xl my-6"
+            >
+              <ul class="content__container__list">
+                <li class="content__container__list__item">Chat with AI</li>
+                <li class="content__container__list__item">Answer Questions</li>
+                <li class="content__container__list__item">Ask Jokes</li>
+                <li class="content__container__list__item">Brainstorm ideas</li>
+                <li class="content__container__list__item">Play games</li>
+                <li class="content__container__list__item">Learn new things</li>
+                <li class="content__container__list__item">
+                  Personal Assistant
+                </li>
+              </ul>
             </span>
-            <p class="font-bold tracking-widest text-3xl xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">...with ChatBox!</p>
-        </div>
-       </section>   
+            <p
+              class="font-bold tracking-widest text-3xl xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
+            >
+              ...with ChatBox!
+            </p>
+          </div>
+        </section>
       </div>
     </div>
   </body>
+
+  <script>
+    function getAnswer() {
+      event.preventDefault();
+      const question = document.getElementById("question").value;
+      console.log(question);
+      fetch(``)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("answer").value = data.answer;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  </script>
 </html>
-
-
-
-
