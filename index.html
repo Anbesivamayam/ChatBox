@@ -46,7 +46,14 @@
         animation-duration: 20s;
         animation-iteration-count: infinite;
       }
-
+      .boxShadow {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      .miniboxShadow {
+        /* box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
+        /* box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px; */
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+      }
       .content__container__list__item {
         margin: 0;
         line-height: 40px;
@@ -91,6 +98,26 @@
           transform: translate3d(0, -14.28%, 0);
         }
       }
+      .marquee {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .quote {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 60s linear infinite;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(-100%, 0);
+        }
+      }
     </style>
   </head>
 
@@ -102,7 +129,7 @@
       <div class="w-full container mx-auto">
         <div class="w-full flex items-center justify-between">
           <a
-            class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+            class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl 2xl:text-4xl"
             href="#"
           >
             Chat<span
@@ -113,7 +140,7 @@
 
           <div class="flex w-1/2 justify-end content-center">
             <a
-              class="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-2 transform hover:scale-125 duration-300 ease-in-out rounded-full shadow-lg outline-none focus:outline-none"
+              class="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto transform hover:scale-125 duration-300 ease-in-out rounded-full shadow-lg outline-none focus:outline-none"
               href="https://twitter.com"
             >
               <svg
@@ -143,23 +170,30 @@
           </div>
         </div>
       </div>
-
+      <!-- Marquee -->
+      <!-- <div class="marquee w-full overflow-hidden whitespace-nowrap py-6">
+        <span
+          class="quote inline-block pl-96 animation duration-700 linear infinite text-4xl font-semibold bg-clip-text
+          text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500"
+          >"Life is either a daring adventure or nothing at all"</span
+        >
+      </div> -->
       <!--Main-->
       <div
-        class="container pt-12 xl:pt-12 mx-auto flex flex-col lg:flex-row items-center gap-x-12"
+        class="px-2 container pt-16 2xl:pt-24 mx-auto flex flex-col lg:flex-row items-center gap-x-6 2xl:gap-x-12"
       >
         <!--Left Col-->
         <div
-          class="w-full flex flex-col w-full justify-center lg:items-start overflow-y-hidden"
+          class="w-full flex flex-col w-full justify-center lg:items-start overflow-y-hidden boxShadow bg rounded-3xl"
         >
           <form
             method="GET"
             action=""
-            class="bg rounded-3xl opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4"
+            class="opacity-75 w-full px-4 2xl:px-8 pt-2 2xl:pt-6 pb-2 2xl:pb-8 2xl:mb-4"
           >
             <div class="my-2">
               <label
-                class="block py-2 font-bold mb-2 xl:text-2xl text-center bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
+                class="block py-2 font-bold mb-2 text-xl 2xl:text-2xl text-center bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
               >
                 Chat with our Chatbox
               </label>
@@ -170,11 +204,11 @@
                     type="text"
                     id="question"
                     name="question"
-                    class="inline-block pr-24 w-full rounded px-4 py-3 font-body text-black bg-gray-100 outline-none drop-shadow-sm transition-all duration-200 ease-in-out"
+                    class="inline-block pr-16 2xl:pr-24 w-full rounded-l-md px-2 py-2 2xl:px-4 2xl:py-3 text-black bg-gray-100 outline-none drop-shadow-sm transition-all duration-200 ease-in-out text-sm 2xl:text-base overflow-hidden"
                   />
                   <button
                     onclick="getAnswer()"
-                    class="absolute right-0 px-4 py-3 bg-gray-600 shadow-xl hover:bg-gray-500 text-white font-normal rounded-r-md hover:transistion duration-300 ease-in-out"
+                    class="absolute right-0 px-2 py-2 2xl:px-4 2xl:py-3 bg-gray-800 shadow-xl hover:bg-gray-600 text-white text-sm 2xl:text-base font-normal rounded-r-md hover:transistion duration-300 ease-in-out"
                   >
                     Ask AI
                   </button>
@@ -183,10 +217,10 @@
                   <textarea
                     id="answer"
                     name="answer"
-                    class="p-2 w-full text-black outline-none resize-none bg-gray-100 outline-none"
+                    class="p-2 w-full text-black outline-none resize-none bg-gray-100 text-sm 2xl:text-base outline-none border border-gray-300 rounded-md"
                     readonly
                     placeholder="Answers"
-                    rows="7"
+                    rows="6"
                   ></textarea>
                 </div>
               </div>
@@ -197,21 +231,21 @@
         <section class="mx-auto px-4 flex flex-col justify-center items-center">
           <div class="w-full overflow-hidden">
             <img
-              class="mx-auto w-full"
+              class="mx-auto w-8/12 2xl:w-full"
               src="https://cdn.due.com/blog/wp-content/uploads/2021/07/Automation-is-Impacting-the-Finance-Industry-1024x695.png"
               alt="chatBox"
             />
           </div>
           <div
-            class="w-full mx-auto py-6 flex flex-col justify-center items-center"
+            class="w-10/12 2xl:w-full mx-auto py-6 flex flex-col justify-center items-center miniboxShadow rounded-md"
           >
             <h2
-              class="font-bold tracking-widest text-3xl xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
+              class="font-bold tracking-widest text-3xl 2xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
             >
               Things you can do
             </h2>
             <span
-              class="content__container block font-light text-browngray text-xl xl:text-2xl my-6"
+              class="content__container block font-light text-xl 2xl:text-2xl my-3 2xl:my-6"
             >
               <ul class="content__container__list">
                 <li class="content__container__list__item">Chat with AI</li>
@@ -226,7 +260,7 @@
               </ul>
             </span>
             <p
-              class="font-bold tracking-widest text-3xl xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
+              class="font-bold tracking-widest text-3xl 2xl:text-4xl bg-gradient-to-r from-green-400 via-pink-500 to-purple-500 bg-clip-text text-transparent"
             >
               ...with ChatBox!
             </p>
@@ -235,7 +269,7 @@
       </div>
     </div>
   </body>
-
+  <!-- Fecth Script -->
   <script>
     function getAnswer() {
       event.preventDefault();
